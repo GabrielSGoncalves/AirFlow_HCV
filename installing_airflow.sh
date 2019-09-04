@@ -1,3 +1,28 @@
+# Connecting to the VM
+ssh -p 2200 airflow@localhost
+
+# passworf = airflow
+
+# Start Hadoop
+start-dfs.sh
+
+# Start Hive
+hive --service metastore &
+
+# Run prestodb
+sudo /opt/presto/bin/launcher start
+
+# Start Spark
+sudo /opt/spark/sbin/start-master.sh
+sudo /opt/spark/sbin/start-slaves.sh 
+
+# Activate environment on VM
+source .sandbox/bin/activate
+
+
+
+
+
 # Creating environment
 conda create -n airflow python=3.7 pandas boto3
 conda activate airflow
